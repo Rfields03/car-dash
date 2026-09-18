@@ -37,7 +37,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen md:flex bg-gradient-to-r from-sky-500 to-indigo-500">
       <div className="overflow-hidden md:flex w-1/2  i justify-around items-center hidden bg-offwhite">
-        <img src={gif} />
+        <img src={gif} alt="Animated car driving" />
       </div>
       <div className="overflow-hidden m-auto flex md:w-1/2 justify-center  py-10 items-center">
         <form onSubmit={handleFormSubmit}

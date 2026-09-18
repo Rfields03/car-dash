@@ -1,7 +1,6 @@
 import React from "react";
 import pic from '../assets/images/maintenance-guy3.png'
 import { Link } from "react-router-dom";
-import auth from "../utils/auth";
 
 const Home =()=>{
     return (
@@ -22,7 +21,7 @@ const Home =()=>{
                 </Link>
             </div>
             <div className="shrink-0 overflow-hidden md:flex w-full md:w-1/2 i justify-around items-center">
-             <img className="h-auto" src={pic}/>
+             <img className="h-auto" src={pic} alt="Vehicle maintenance illustration"/>
             </div>
         </div>
     )

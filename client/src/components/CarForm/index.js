@@ -138,7 +138,11 @@ const CarForm = () => {
                                 />
                                 <label className="flex flex-col border-[3px] rounded-lg border-gray-400 cursor-pointer" htmlFor={car.name}>
                                     <span className="text-xs font-semibold uppercase">
-                                        <img className="rounded-md" src={require(`../../assets/images/cars/${car.name}.png`)}/>
+                                        <img
+                                            className="rounded-md"
+                                            src={require(`../../assets/images/cars/${car.name}.png`)}
+                                            alt={`${car.name} car option`}
+                                        />
                                     </span>
                                     
                                 </label>

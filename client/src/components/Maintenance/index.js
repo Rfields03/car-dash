@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 const Maintenance = ()=>{
-    const {carId: carId} = useParams()
+    const { carId } = useParams()
     const [maintenance] = useState([
         {
             id: 'check-engine',
@@ -104,14 +104,13 @@ const Maintenance = ()=>{
           index === position ? !item : item         
         );
         setCheckedState(updatedCheckedState);
-        const filteredarr= updatedCheckedState.map((currentState ,index)=>{
-            if (currentState === true) {
-                return maintenance[index].value;
+        const newarr = updatedCheckedState.reduce((selectedMaintenance, currentState, index) => {
+            if (currentState) {
+                selectedMaintenance.push(maintenance[index].value);
             }
-        })
-       const newarr = filteredarr.filter(e =>{
-            return e !== undefined;
-        })
+
+            return selectedMaintenance;
+        }, []);
 
         setMaintenanceArr(newarr);
 
@@ -121,9 +120,8 @@ const Maintenance = ()=>{
         event.preventDefault();
 
         try{
-            const arr= maintenanceArr || arr;
-          const add= await saveMaintenance({variables:{carId, type: arr}})
-            console.log(arr, add);
+          const add= await saveMaintenance({variables:{carId, type: maintenanceArr}})
+            console.log(maintenanceArr, add);
             window.location.assign('/dashboard')
            return add;
         }catch (e){
@@ -156,8 +154,11 @@ const Maintenance = ()=>{
                         <label htmlFor={type.id} 
                         className="pt-9 pb-6 text-center px-4 w-48 font-bold capitalize transition-colors duration-200 ease-in-out border-2 rounded select-none peer-checked:text-indigo-600 peer-checked:border-indigo-600">
                         <span>
-                            <img src={require(`../../assets/images/maintenance-icons/${type.id}.png`)} 
-                            className="h-16 m-auto mb-2"/>
+                            <img
+                                src={require(`../../assets/images/maintenance-icons/${type.id}.png`)}
+                                className="h-16 m-auto mb-2"
+                                alt={type.value}
+                            />
                         </span>
                         {type.value}</label>
                     </div>

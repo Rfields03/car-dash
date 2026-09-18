@@ -9,7 +9,7 @@ const NoMatch = ()=>{
             <div className="m-auto max-w-2xl">
                 <div className="px-4 text-center flex flex-col justify-center items-center">
                     <div className=" mb-8">
-                        <img src={img404} className=" h-44 md:h-60"/>
+                        <img src={img404} className=" h-44 md:h-60" alt="404 not found"/>
                     </div>
                     <div className="mb-5 capitalize text-slate-500 font-montserrat font-semibold text-lg md:text-xl">
                         Oops!  The page you're looking for doesn't exist
